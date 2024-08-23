@@ -13,10 +13,7 @@ import { authFormSchema } from '@/lib/utils'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { signIn, signUp } from '@/lib/actions/user.actions'
-
-const formSchema = z.object({
-    email: z.string().email(),
-})
+import PlaidLink from './PlaidLink'
 
 const AuthForm = ({ type }: { type: string }) => {
     const router = useRouter();
@@ -40,7 +37,20 @@ const AuthForm = ({ type }: { type: string }) => {
         setIsLoading(true)
         try {
             if (type === 'sign-up') {
-                const newUser = await signUp(data);
+                const userData = {
+                    firstName: data.firstName!,
+                    lastName: data.lastName!,
+                    address1: data.address1!,
+                    city: data.city!,
+                    state: data.state!,
+                    postalCode: data.postalCode!,
+                    dateOfBirth: data.dateOfBirth!,
+                    ssn: data.ssn!,
+                    email: data.email,
+                    password: data.password,
+                }
+
+                const newUser = await signUp(userData);
                 setUser(newUser);
             }
 
@@ -93,7 +103,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
             {user ? (
                 <div className="flex flex-col gap-4">
-
+                    <PlaidLink user={user} variant='primary' />
                 </div>
             ) : (
                 <>
@@ -118,7 +128,7 @@ const AuthForm = ({ type }: { type: string }) => {
                                     </div>
                                     <CustomInput
                                         control={form.control}
-                                        name='address'
+                                        name='address1'
                                         label='Address'
                                         placeholder='Enter your specific address'
                                     />
@@ -142,7 +152,7 @@ const AuthForm = ({ type }: { type: string }) => {
                                             placeholder='Example: 11101'
                                         />
                                     </div>
-                                    <div className="flex gap4">
+                                    <div className="flex gap-4">
                                         <CustomInput
                                             control={form.control}
                                             name='dateOfBirth'

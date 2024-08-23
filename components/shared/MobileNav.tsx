@@ -1,19 +1,13 @@
 'use client'
 
 import React from 'react'
-import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetTrigger,
-} from "@/components/ui/sheet"
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from 'next/image'
 import Link from 'next/link'
 import { sidebarLinks } from '@/constants'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import Footer from './Footer'
-
 
 const MobileNav = ({ user }: MobileNavProps) => {
     const pathname = usePathname();
@@ -30,7 +24,6 @@ const MobileNav = ({ user }: MobileNavProps) => {
                     />
                 </SheetTrigger>
                 <SheetContent side='left' className='border-none bg-white'>
-
                     <Link href='/' className='mb-12 cursor-pointer flex items-center gap-1 px-4'>
                         <Image
                             src='/icons/logo.svg'
