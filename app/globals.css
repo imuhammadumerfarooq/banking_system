@@ -197,7 +197,11 @@
   }
 
   .transactions-header {
-    @apply flex w-full flex-col items-start justify-between gap-8 md:flex-row;
+    @apply flex w-full flex-col items-start justify-between gap-8 p-8 md:flex-row;
+  }
+
+  .transaction-details {
+    @apply no-scrollbar flex flex-col overflow-y-scroll bg-gray-25 p-6 mx-8 md:max-h-screen;
   }
 
   .transactions-account {

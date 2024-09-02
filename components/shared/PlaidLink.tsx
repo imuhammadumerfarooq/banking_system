@@ -1,5 +1,3 @@
-
-
 import React, { useCallback, useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { PlaidLinkOnSuccess, PlaidLinkOptions, usePlaidLink } from 'react-plaid-link'
@@ -60,12 +58,12 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
                         width={24}
                         height={24}
                     />
-                    <p className='hidden text-[16px] font-semibold text-black-2 xl:block'>Connect bank</p>
+                    <p className='text-[16px] font-semibold text-black-2 hidden xl:block'>Connect bank</p>
                 </Button>
             ) : (
                 <Button
                     onClick={() => open()}
-                    className='plaidlink-default'
+                    className='plaidlink-ghost'
                 >
                     <Image
                         src='/icons/connect-bank.svg'
@@ -73,7 +71,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
                         width={24}
                         height={24}
                     />
-                    <p className='text-[16px] font-semibold text-black-2'>Connect bank</p>
+                    <p className='text-[16px] font-semibold text-black-2 hidden xl:block'>Connect bank</p>
                 </Button>
             )}
         </>

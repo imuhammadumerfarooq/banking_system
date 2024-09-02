@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
+// import Image from 'next/image'
+// import Link from 'next/link'
 import React from 'react'
 import BankCard from './BankCard'
 import { countTransactionCategories } from '@/lib/utils'
@@ -29,7 +29,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
             <section className="banks">
                 <div className="flex justify-between w-full">
                     <h2 className="header-2">My Banks</h2>
-                    <Link href='/' className="flex gap-2">
+                    {/* <Link href='/' className="flex gap-2">
                         <Image
                             src='/icons/plus.svg'
                             alt='plus'
@@ -40,7 +40,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
                         <h2 className="text-14 font-semibold text-gray-600 w-20">
                             Add Bank
                         </h2>
-                    </Link>
+                    </Link> */}
                 </div>
 
                 {banks?.length > 0 && (
